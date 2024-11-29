@@ -1,0 +1,15 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Set the base path for rewrite rules
+RewriteBase /finalprojectphpoop/
+
+# Allow access to existing files and directories (for CSS, JS, images, etc.)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redirect all other requests to public/index.php
+RewriteRule ^(.*)$ public/index.php [L]
+
+DirectoryIndex public/index.php
